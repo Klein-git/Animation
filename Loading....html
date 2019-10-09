@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>加载动画效果</title>
+<style>
+body{
+	margin: 0;
+	padding: 0;
+	background: #34495e;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "montserrat",sans-serif;
+	}
+	.loading{
+		width: 200px;
+		height: 200px;
+		box-sizing: border-box;
+		border-radius: 50%;
+		border-top:10px solid #000000;
+		position: relative
+	}
+	.loading::after,.loading::before{
+		content: '';
+		width: 200px;
+		height: 200px;
+		position: absolute;
+		left: 0;
+		top:-10px;
+		box-sizing: border-box;
+		border-radius: 50%;
+	}
+	
+	.loading::after{
+		border-top: 10px solid #4DB9BD;
+		transform: rotate(120deg)
+	}
+	
+	.loading::before{
+		border-top: 10px solid red;
+		transform: rotate(240deg)
+	}
+	
+</style>
+</head>
+
+<body>
+<div class="loading">
+  <p><span>!imp</span> </p>
+</div>
+</body>
+</html>
