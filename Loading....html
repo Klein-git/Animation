@@ -4,16 +4,17 @@
 <meta charset="UTF-8">
 <title>加载动画效果</title>
 <style>
-body{
-	margin: 0;
-	padding: 0;
-	background: #34495e;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-family: "montserrat",sans-serif;
+	body{
+		margin: 0;
+		padding: 0;
+		background: #34495e;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: "montserrat",sans-serif;
 	}
+	
 	.loading{
 		width: 200px;
 		height: 200px;
@@ -22,6 +23,7 @@ body{
 		border-top:10px solid #000000;
 		position: relative
 	}
+	
 	.loading::after,.loading::before{
 		content: '';
 		width: 200px;
@@ -43,12 +45,22 @@ body{
 		transform: rotate(240deg)
 	}
 	
+	@keyframes a1{
+		to{
+			transform:rotate(360deg);
+		}
+	}
+	@keyframes a2{
+		to{
+			transform:rotate(-360deg);
+		}
+	}
 </style>
 </head>
 
 <body>
 <div class="loading">
-  <p><span>!imp</span> </p>
+  <p><span>Loading...</span> </p>
 </div>
 </body>
 </html>
