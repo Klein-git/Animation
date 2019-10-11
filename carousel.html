@@ -5,7 +5,7 @@
   <meta charset="utf-8">
 	<script src="jquery-3.4.1.min.js"></script>
   <style>
-	*{
+    *{
       margin: 0;
       padding: 0;
     }
@@ -68,23 +68,23 @@
 		
 		aAll[index].style.backgroundColor = 'black';
 		
-			for(var i=0;i<aAll.length;i++){
-				//为a标签添加num属性
-				aAll[i].num = i;
-				//为a标签绑定单机响应函数
-				aAll[i].onclick =function(){
-					//关闭自动切换的定时器
-					clearInterval(timer);
-					//获取点击a标签的索引并设置给index
-					index = this.num;
+		for(var i=0;i<aAll.length;i++){
+			//为a标签添加num属性
+			aAll[i].num = i;
+			//为a标签绑定单机响应函数
+			aAll[i].onclick =function(){
+				//关闭自动切换的定时器
+				clearInterval(timer);
+				//获取点击a标签的索引并设置给index
+				index = this.num;
 					
-					all();
+				all();
 					
-					move(imgList,20,-400*index,function(){
-						zidong();
-					})
-				}
+				move(imgList,20,-400*index,function(){
+					zidong();
+				})
 			}
+		}
 		//开启自动切换图片
 		zidong();
 		//设置选中的a
@@ -119,10 +119,8 @@
 				move(imgList,20,-400*index,function(){
 					//修改导航按钮
 					all()
-				})
-				
+				})	
 			},3000)//3s一次
-			
 		}
 		
 		// obj:执行动画的对象
@@ -159,7 +157,6 @@
 					//执行完毕，调用回调函数
 					callback && callback();
 				}
-				
 			},20)
 		}
 	})
