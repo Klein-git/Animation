@@ -1,0 +1,168 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <title>轮播</title>
+  <meta charset="utf-8">
+	<script src="jquery-3.4.1.min.js"></script>
+  <style>
+	*{
+      margin: 0;
+      padding: 0;
+    }
+    #outer{
+      width: 400px;
+      height: 300px;
+      margin: 100px auto;
+      overflow: hidden;
+      position: relative;
+    }
+    #imgList{
+	  width: 1600px;
+      list-style:none;
+      position: absolute;
+    }
+    #imgList li{
+      float: left;
+    }
+    #navDiv{
+      position: absolute;
+      bottom: 5px;
+		left: 162.5px
+    }
+    #navDiv a{
+      background-color: red;
+      width: 15px;
+      height: 15px;
+      margin: 0 5px;
+      float: left;
+      opacity: 0.5;
+    }
+    #navDiv a:hover{
+      background-color: #222222;
+    }
+  </style>
+</head>
+<body>
+	<div id="outer">
+    <ul id="imgList">
+      <li><img src="试/轮播/1.jpg"/></li>
+      <li><img src="试/轮播/2.jpg"/></li>
+      <li><img src="试/轮播/3.jpg"/></li>
+      <li><img src="试/轮播/1.jpg"/></li>
+    </ul>
+    <div id="navDiv" >
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+    </div>
+  </div>
+	
+</body>
+<script>
+	$(function(){
+		var index = 0;
+		var imgList = document.getElementById('imgList');
+		var imgAll = imgList.getElementsByTagName('img');
+		var navDiv = document.getElementById('navDiv');
+		var aAll = navDiv.getElementsByTagName('a');
+		
+		aAll[index].style.backgroundColor = 'black';
+		
+			for(var i=0;i<aAll.length;i++){
+				//为a标签添加num属性
+				aAll[i].num = i;
+				//为a标签绑定单机响应函数
+				aAll[i].onclick =function(){
+					//关闭自动切换的定时器
+					clearInterval(timer);
+					//获取点击a标签的索引并设置给index
+					index = this.num;
+					
+					all();
+					
+					move(imgList,20,-400*index,function(){
+						zidong();
+					})
+				}
+			}
+		//开启自动切换图片
+		zidong();
+		//设置选中的a
+		function all(){
+			//判断当前索引为最后一张图片
+			if(index >= imgAll.length-1){
+				//设置索引为0
+				index= 0;
+				//此时显示的最后一张图片，而最后一张图片和第一张是一摸一样
+				//所以通过CSS将最后一张切换成第一张
+				imgList.style.left = 0
+			}
+			//设置所有的a为红色
+			for(var i= 0 ; i < aAll.length ; i++){
+				aAll[i].style.backgroundColor = '';
+			}
+			//设置选中的a为黑色
+			aAll[index].style.backgroundColor = 'black';
+		}
+		//创建定时器表识
+		var timer;
+
+		//创建函数，用来开启自动切换
+		function zidong(){
+			//开启定时器，定时切换图片
+			timer = setInterval(function(){
+				//索引自增
+				index++;
+				//获取index值
+				index %= imgAll.length;
+				//执行动画
+				move(imgList,20,-400*index,function(){
+					//修改导航按钮
+					all()
+				})
+				
+			},3000)//3s一次
+			
+		}
+		
+		// obj:执行动画的对象
+		// tarfet:动画的目标位置
+		// speed:移动的速度
+		// callback:回调函数
+		
+		function move(obj,speed,target,callback){
+			//关闭定时器
+			clearInterval(obj.timer);
+			//获取obj原有left值
+			var old = obj.offsetLeft;
+			//判断speed为正负值
+			//右=正 左=负
+			if(old>target){
+				speed = -speed;
+			}
+			//开启定时器运行动画效果
+			obj.timer = setInterval(function(){
+				//获取obj原有left值
+				var oldValue = obj.offsetLeft;
+				//旧值基础上增加
+				var newValue = oldValue + speed;
+				//newValue > target时向左移动 else {向右移动}
+				if((speed > 0 && newValue > target)||(speed < 0 && newValue<target)){
+					newValue=target
+				}
+				//新值设置给obj
+				obj.style.left = newValue + 'px';
+				//到达指定位置时，关闭动画效果
+				if(newValue == target){
+					//关闭定时器
+					clearInterval(obj.timer);
+					//执行完毕，调用回调函数
+					callback && callback();
+				}
+				
+			},20)
+		}
+	})
+	
+</script>
+</html>
