@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>横版手风琴</title>
+<script src="jquery-3.4.1.min.js"></script>
+<style>
+* {
+	margin: 0;
+	padding: 0
+}
+.idv{
+	height: 300px;
+	margin: 50px auto;
+	overflow: hidden;
+	position: relative
+	}
+ul {
+	position: relative
+}
+li {
+	list-style: none;
+	width: 400px;
+	height: 300px;
+	position: absolute
+}
+.text {
+	width: 100px;
+	height: 300px;
+	background: rgba(0,0,0,0.3);
+	color: #FFFFFF;
+	position: relative
+}
+.text p {
+	padding: 0 42px;
+	top: 50%;
+	position: absolute;
+	transform: translateY(-50%)
+}
+</style>
+</head>
+
+<body>
+	<div class="idv">
+<ul>
+  <li style="background-image: url(插入图片)">
+    <div class="text">
+      <p> 这是一首简单的歌 </p>
+    </div>
+  </li>
+  <li style="background-image: url(插入图片)">
+    <div class="text">
+      <p> 春风沉醉 </p>
+    </div>
+  </li>
+  <li style="background-image: url(插入图片)">
+    <div class="text">
+      <p> 绿草如茵 </p>
+    </div>
+  </li>
+</ul>
+		</div>
+<script>
+		
+
+	$(function(){
+		var $li = $('.idv').find('li')
+
+		//设置手风琴宽度
+		$('.idv').css('width',$li.length*100+300+'px');
+		//设置第一个图片left值为0
+		$li.eq(0).css('left',0);
+		
+		for(var i = 1;i<$li.length;i++){
+			$li.eq(i).css('left',300+i*100+'px'); //自动设置其他图片left值
+		}
+			
+		$li.hover(function(){ 
+			for(var i = 0;i < $li.length;i++){
+				if($(this).index() >= i){  
+					console.log(i);
+					$li.eq(i).stop().animate({left:i*100});
+				} else { 
+					$li.eq(i).stop().animate({left:i*100+300});
+				}
+			}
+		})
+	})
+		
+	
+		</script>
+</body>
+</html>
