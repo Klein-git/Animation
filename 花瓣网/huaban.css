@@ -1,0 +1,187 @@
+@charset "UTF-8";
+/* CSS Document */
+* {
+    margin: 0;
+    padding: 0
+}
+.header {
+    height: 48px;
+    background: #FFFFFF
+}
+.center {
+    margin: 0 auto;
+    width: 85%;
+    min-width: 1024px;
+}
+a {
+    margin-right: 24px;
+    text-decoration: none;
+    color: #000000
+}
+a:hover {
+    color: #FF0004
+}
+body {
+    background: #F5F5F5;
+    font-size: 14px
+}
+form p {
+    display: inline-block
+}
+.header-left {
+    float: left;
+    margin-top: 10px;
+    line-height: 28px
+}
+.header-left a {
+    float: left;
+}
+.header-left-logo {
+    width: 80px;
+    height: 28px;
+    background-image: url(53.jpg)
+}
+.header-left-yincang {
+    float: left;
+    width: 24px;
+    margin-right: 20px;
+    border-right: 1px solid #676464;
+    padding-right: 20px;
+    text-align: center
+}
+.header-right {
+    float: right;
+    margin-left: 20px
+}
+.right-weiba {
+    float: left;
+    height: 48px;
+    width: 46px;
+    border-right: 1px solid #f5f5f5;
+}
+.weiba-left {
+    margin-left: -10px;
+    border-left: 1px solid #F5F5F5;
+}
+.right-weiba img {
+    margin: 14px
+}
+.ivu-inp {
+    width: auto;
+    padding-top: 3px
+}
+.inp-form {
+    overflow: hidden;
+    float: none;
+    border: 1px solid #DDDDDD;
+    height: 32px;
+    background: #FAFAFA;
+    margin-top: 4px;
+    border-radius: 3px
+}
+.form-size {
+    position: absolute;
+    margin-top: -4px;
+    padding: 10px;
+    min-width: 64px;
+}
+.form-inline {
+    display: inline-block
+}
+.inp-form input {
+    margin-left: 68px;
+    border: 0;
+    outline: none;
+    background: #FAFAFA;
+    height: 32px
+}
+.pin {
+    background: #ffffff;
+    width: 236px;
+    border-radius: 10px;
+    margin-top: 14px;
+    padding-bottom: 17px;
+}
+/*个人资料*/
+.pin-header {
+    position: relative;
+    margin: 16px
+}
+/*名字*/
+.pin-id {
+    position: absolute;
+    left: 80px;
+    line-height: 60px;
+    font-weight: 700;
+    font-size: 16px
+}
+.idv.box {
+	margin: 15px 7px 0 15px;
+	position: absolute;
+	border-radius: 15px;
+	overflow: hidden
+}
+.pin.box{
+	margin: 15px 7px 0 15px;
+	position: absolute;
+}
+.idv img {
+	width: 236px;
+	height: auto;
+	vertical-align:middle
+}
+/*采集和数字*/
+.pin-sw {
+    float: left;
+    width: 60px;
+    padding: 0 14px
+}
+/*画板*/
+.pin-hb {
+    float: left;
+    width: 60px
+}
+/*粉丝*/
+.pin-fs {
+    padding: 0 14px
+}
+/*数字*/
+.pin-sz {
+    font-weight: 700;
+    font-size: 16px
+}
+/*文字*/
+.pin-wz {
+    color: #ADADAD;
+    font-size: 12px
+}
+.pin-text-center {
+    text-align: center
+}
+/*内容*/
+.pin-nr {
+    margin: 0 16px;
+    padding: 14px;
+    border: 1px solid #F8E7C6;
+    line-height: 20px;
+}
+/*内容文字*/
+.pin-nr-wz {
+    font-size: 12px
+}
+/*按钮*/
+.pin-nr-btn {
+    color: aliceblue;
+    background: #E34956;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    padding: 3px;
+    margin: 8px auto 0;
+    width: 82px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+}
+#main {
+	position: relative;
+}
